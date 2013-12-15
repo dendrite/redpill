@@ -21,7 +21,7 @@
     </div>
 </g:if>
 
-<g:form action="authenticate" controller="user" method="post">
+<g:form action="authenticate" controller="user" method="post" class="form">
 
     <div class="dialog">
         <table>
@@ -30,8 +30,9 @@
                 <td class="name">
                     <label for="login">Login:</label>
                 </td>
-                <td>
-                    <input type="text" id="login" name="username"/>
+                <td> <div class="input">
+                    <g:textField placeholder="Username" type="text" required="true" id="login" name="username"/>
+                    </div>
                 </td>
             </tr>
 
@@ -40,7 +41,7 @@
                     <label for="password">Password:</label>
                 </td>
                 <td>
-                    <input type="password" id="password" name="password"/>
+                    <g:passwordField placeholder="password" type="password" required="true" id="password" name="password"/>
                 </td>
             </tr>
             </tbody>
