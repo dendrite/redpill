@@ -6,6 +6,6 @@ class Document implements Serializable{
     Date createdAt = new Date()
 
     static constraints = {
-        id generator: 'uuid2'
+        id generator: 'uuid2', bindable: true
     }
 }

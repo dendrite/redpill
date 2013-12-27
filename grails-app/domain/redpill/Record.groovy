@@ -6,6 +6,6 @@ class Record extends Document implements Serializable{
     String description
 
     static constraints = {
-//        id generator: 'uuid2'
+        id generator: 'uuid2'
     }
 }
