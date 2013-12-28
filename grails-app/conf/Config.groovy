@@ -93,3 +93,6 @@ log4j = {
 grails.gorm.default.mapping = {
     id(generator: "uuid2", type: "uuid-char", length: 36)
 }
+
+grails.plugins.twitterbootstrap.fixtaglib = true
+grails.plugins.twitterbootstrap.defaultBundle = 'bundle_bootstrap'

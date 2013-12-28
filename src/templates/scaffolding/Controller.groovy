@@ -24,14 +24,14 @@ class ${className}Controller {
             return
         }
 
-        flash.message = message(code: 'default.created.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
+        flash.message = message(code: 'default.created.message', args: [message(code: '${domainClass.propertyName}.personLabel', default: '${className}'), ${propertyName}.id])
         redirect(action: "show", id: ${propertyName}.id)
     }
 
     def show(Long id) {
         def ${propertyName} = ${className}.get(id)
         if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.personLabel', default: '${className}'), id])
             redirect(action: "list")
             return
         }
@@ -42,7 +42,7 @@ class ${className}Controller {
     def edit(Long id) {
         def ${propertyName} = ${className}.get(id)
         if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.personLabel', default: '${className}'), id])
             redirect(action: "list")
             return
         }
@@ -53,7 +53,7 @@ class ${className}Controller {
     def update(Long id, Long version) {
         def ${propertyName} = ${className}.get(id)
         if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.personLabel', default: '${className}'), id])
             redirect(action: "list")
             return
         }
@@ -61,7 +61,7 @@ class ${className}Controller {
         if (version != null) {
             if (${propertyName}.version > version) {<% def lowerCaseName = grails.util.GrailsNameUtils.getPropertyName(className) %>
                 ${propertyName}.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: '${domainClass.propertyName}.label', default: '${className}')] as Object[],
+                          [message(code: '${domainClass.propertyName}.personLabel', default: '${className}')] as Object[],
                           "Another user has updated this ${className} while you were editing")
                 render(view: "edit", model: [${propertyName}: ${propertyName}])
                 return
@@ -75,25 +75,25 @@ class ${className}Controller {
             return
         }
 
-        flash.message = message(code: 'default.updated.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), ${propertyName}.id])
+        flash.message = message(code: 'default.updated.message', args: [message(code: '${domainClass.propertyName}.personLabel', default: '${className}'), ${propertyName}.id])
         redirect(action: "show", id: ${propertyName}.id)
     }
 
     def delete(Long id) {
         def ${propertyName} = ${className}.get(id)
         if (!${propertyName}) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: '${domainClass.propertyName}.personLabel', default: '${className}'), id])
             redirect(action: "list")
             return
         }
 
         try {
             ${propertyName}.delete(flush: true)
-            flash.message = message(code: 'default.deleted.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
+            flash.message = message(code: 'default.deleted.message', args: [message(code: '${domainClass.propertyName}.personLabel', default: '${className}'), id])
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: '${domainClass.propertyName}.label', default: '${className}'), id])
+            flash.message = message(code: 'default.not.deleted.message', args: [message(code: '${domainClass.propertyName}.personLabel', default: '${className}'), id])
             redirect(action: "show", id: id)
         }
     }

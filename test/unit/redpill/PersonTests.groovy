@@ -15,5 +15,19 @@ class PersonTests {
 
     void testSomething() {
 
+        Contact contact = new Contact()
+
+
+        Person person = new Person(
+                id: UUID.randomUUID(),
+                firstName: "Иван",
+                lastName: "Иванов",
+                dateOfBirth: new Date()
+
+        )
+
+        person.addContact contact
+
+        println "Person:" + person
     }
 }

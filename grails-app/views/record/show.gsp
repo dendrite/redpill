@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'record.label', default: 'Record')}" />
+		<g:set var="entityName" value="${message(code: 'record.personLabel', default: 'Record')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -46,7 +46,7 @@
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${recordInstance?.id}" />
 					<g:link class="edit" action="edit" id="${recordInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.personLabel', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
 		</div>

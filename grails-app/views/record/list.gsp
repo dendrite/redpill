@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'record.label', default: 'Record')}"/>
+    <g:set var="entityName" value="${message(code: 'record.personLabel', default: 'Record')}"/>
     <title><g:message code="default.list.label" args="[entityName]"/></title>
 </head>
 
@@ -29,9 +29,9 @@
         <tr>
 
             <g:sortableColumn property="description"
-                              title="${message(code: 'record.description.label', default: 'Description')}"/>
+                              title="${message(code: 'record.description.personLabel', default: 'Description')}"/>
 
-            <g:sortableColumn property="name" title="${message(code: 'record.name.label', default: 'Name')}"/>
+            <g:sortableColumn property="name" title="${message(code: 'record.name.personLabel', default: 'Name')}"/>
 
         </tr>
         </thead>
