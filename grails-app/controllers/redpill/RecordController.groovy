@@ -15,14 +15,6 @@ class RecordController {
         [recordInstanceList: Record.list(params), recordInstanceTotal: Record.count()]
     }
 
-    def listPerson(Integer max) {
-        println "parameters:" + params
-        params.max = Math.min(max ?: 10, 100)
-//         println "PERSONS CARDS" + person + "| id:" + person.id + "_" + person.firstName
-        println "CARDS:" + Person.findById(params.patientId)?.records
-
-        [recordInstanceList: Person.findById(params.patientId)?.records, recordInstanceTotal: 2]
-    }
 
     def create() {
         [recordInstance: new Record(params)]

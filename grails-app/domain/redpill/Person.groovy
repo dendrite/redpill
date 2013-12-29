@@ -10,8 +10,11 @@ class Person implements Serializable{
     GenderType gender = GenderType.MALE
     Date dateOfBirth
 
+    Set<Address> addresses;
     Set<Contact> contacts
     Set<Person> parents
+
+    Disability disability
 
     Label personLabel
     Label groupLabel
@@ -30,18 +33,19 @@ class Person implements Serializable{
     }
 
 
-    static hasMany = [contacts : Contact, parents: Person]
+    static hasMany = [contacts : Contact, parents: Person, addresses: Address]
 
     static constraints = {
         id generator: 'uuid2'
 
-        firstName nullable: false, size: 1..255, blank: false
-        lastName nullable: false, size: 1..255, blank: false
-        middleName nullable: true, size: 1..255, blank: true
+        firstName nullable: false, size: 1..128, blank: false
+        lastName nullable: false, size: 1..128, blank: false
+        middleName nullable: true, size: 1..128, blank: true
 
         gender nullable: false
         dateOfBirth nullable: false
 
+        addresses nullable: true
         contacts nullable: true
         parents nullable: true
 

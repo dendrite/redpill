@@ -16,4 +16,8 @@ public enum GenderType {
     public String getName() {
         return this.name;
     }
+
+    String toString(){
+        return this.name
+    }
 }

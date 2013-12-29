@@ -1,0 +1,16 @@
+package redpill
+
+
+
+import grails.test.mixin.*
+
+/**
+ * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
+ */
+@TestFor(redpill.dictionary.Dictionary)
+class DictionaryTests {
+
+    void testSomething() {
+        fail "Implement me"
+    }
+}

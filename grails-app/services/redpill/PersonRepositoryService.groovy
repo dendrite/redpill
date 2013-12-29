@@ -1,0 +1,5 @@
+package redpill
+
+class PersonRepositoryService {
+
+}
