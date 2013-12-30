@@ -12,9 +12,46 @@ class Dictionary  implements Serializable{
     String description
 
     Dictionary parent
-    List<DictionaryItem> items
+
+    SortedSet<DictionaryItem> items
+    boolean hasChildDictionary = false
+
+    Dictionary setParent(Dictionary dictionary){
+        this.parent = dictionary
+        this.parent.hasChildDictionary = true
+        return this
+    }
+
+    Dictionary add(DictionaryItem dictionaryItem){
+        if (items == null){
+            items = new TreeSet<DictionaryItem>();
+        }
+        if (dictionaryItem != null){
+            dictionaryItem.dictionary = this
+            items.add(dictionaryItem);
+        }
+
+        return this
+    }
+
+    Dictionary delete(DictionaryItem dictionaryItem){
+        if (items == null){
+            items = new TreeSet<DictionaryItem>();
+        }
+        items.remove(dictionaryItem);
+        return this
+    }
+
+    boolean hasParent(){
+        return parent != null;
+    }
+
+    boolean hasItems(){
+        return (items != null && items.size() > 0)
+    }
 
     static hasMany = [items : DictionaryItem]
+    static hasOne = [parent: Dictionary]
 
     static constraints = {
         id generator: 'uuid2'
@@ -27,14 +64,15 @@ class Dictionary  implements Serializable{
 
     @Override
     public java.lang.String toString() {
-        return "Dictionary{" +
+        return "\n\tDictionary{" +
                 "version=" + version +
                 ", id=" + id +
                 ", code='" + code + '\'' +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", parent=" + parent +
-                ", items=" + items +
+                ", hasChildDictionary='" + hasChildDictionary + '\'' +
+                ", \nparent=" + parent +
+                ", \nitems=" + items +
                 '}';
     }
 }

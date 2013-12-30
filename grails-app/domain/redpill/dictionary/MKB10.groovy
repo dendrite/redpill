@@ -2,8 +2,11 @@ package redpill.dictionary
 
 class MKB10 extends Dictionary implements Serializable{
 
-    final String title = 'Международный справочник'
+    public void setTitle(String title){
+        this.title = '++ Международный справочник'
+    }
 
+    @Override
     public String getTitle(){
         return 'FFF'
     }

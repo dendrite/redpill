@@ -1,6 +1,6 @@
 package redpill.dictionary
 
-class DictionaryItem implements Serializable {
+class DictionaryItem implements Serializable, Comparable<DictionaryItem> {
 
     UUID id
 
@@ -19,4 +19,26 @@ class DictionaryItem implements Serializable {
         description nullable: true, size: 0..2000
         dictionary nullable: false
     }
+
+    @Override
+    int compareTo(DictionaryItem otherDictionaryItem) {
+        if (otherDictionaryItem != null) {
+            if (this.code != null && otherDictionaryItem.code != null) {
+                return this.code.compareTo(otherDictionaryItem.code)
+            }
+        }
+        return 0
+    }
+
+    @Override
+    public String toString() {
+        return "\n\t\tDictionaryItem{" +
+                "version=" + version +
+                ", id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description +
+                '}';
+    }
+
 }

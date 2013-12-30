@@ -9,6 +9,7 @@ import org.junit.*
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
 @TestFor(MKB10)
+@Mock([DictionaryItem, Dictionary])
 class MKB10Tests {
 
     void testMKB10OneClass(){
@@ -41,12 +42,45 @@ class MKB10Tests {
                 parent: dictionary_K00_K14
         )
 
-//        DictionaryItem dictionaryItem1
-//
-//        DictionaryItem dictionaryItem = new DictionaryItem(id: UUID.randomUUID(), code: )
+
+        dictionary_K00
+            .add(new DictionaryItem(
+                        id: UUID.randomUUID(),
+                        code: 'K00.0',
+                        name: 'Адентия',
+                        description: 'Адентия',
+                )
+            )
+            .add(new DictionaryItem(
+                        id: UUID.randomUUID(),
+                        code: 'K00.1',
+                        name: 'Сверхкомплектные зубы',
+                        description: 'Сверхкомплектные зубы',
+                )
+            )
+            .add(new DictionaryItem(
+                        id: UUID.randomUUID(),
+                        code: 'K00.2',
+                        name: 'Аномалии размеров и формы зубов',
+                        description: 'Аномалии размеров и формы зубов',
+                )
+            )
+
 
         println mkb10
         println dictionary_K00
+
+        println "\n\n\n\n\n\n"
+
+        println "---"
+
+        println "dictionary_K00:" + dictionary_K00
+
+
+
+        println "mkb" + mkb10
+        println "\n\n child ?" + mkb10.hasChildDictionary
+
 
     }
 
